@@ -28,7 +28,7 @@ class ToukousController < ApplicationController
 
     respond_to do |format|
       if @toukou.save
-        format.html { redirect_to @toukou, notice: 'Toukou was successfully created.' }
+        format.html { redirect_to @toukou, notice: '正常に投稿されました。' }
         format.json { render :show, status: :created, location: @toukou }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ToukousController < ApplicationController
   def update
     respond_to do |format|
       if @toukou.update(toukou_params)
-        format.html { redirect_to @toukou, notice: 'Toukou was successfully updated.' }
+        format.html { redirect_to @toukou, notice: '投稿内容が更新されました。' }
         format.json { render :show, status: :ok, location: @toukou }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class ToukousController < ApplicationController
   def destroy
     @toukou.destroy
     respond_to do |format|
-      format.html { redirect_to toukous_url, notice: 'Toukou was successfully destroyed.' }
+      format.html { redirect_to toukous_url, notice: '投稿内容を削除しました。' }
       format.json { head :no_content }
     end
   end
