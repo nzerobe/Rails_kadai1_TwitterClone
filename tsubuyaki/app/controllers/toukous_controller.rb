@@ -26,14 +26,19 @@ class ToukousController < ApplicationController
   def create
     @toukou = Toukou.new(toukou_params)
 
-    respond_to do |format|
-      if @toukou.save
-        format.html { redirect_to @toukou, notice: '正常に投稿されました。' }
-        format.json { render :show, status: :created, location: @toukou }
+    if params[:back]
+       render :new
+    else
+
+      respond_to do |format|
+      if @toukou.save  
+          format.html { redirect_to @toukou, notice: '正常に投稿されました。' }
+          format.json { render :show, status: :created, location: @toukou }
       else
-        format.html { render :new }
-        format.json { render json: @toukou.errors, status: :unprocessable_entity }
+          format.html { render :new }
+          format.json { render json: @toukou.errors, status: :unprocessable_entity }
       end
+     end
     end
   end
 
@@ -49,6 +54,11 @@ class ToukousController < ApplicationController
         format.json { render json: @toukou.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def confirm
+    @toukou = Toukou.new(toukou_params)
+    render :new if @toukou.invalid?
   end
 
   # DELETE /toukous/1
