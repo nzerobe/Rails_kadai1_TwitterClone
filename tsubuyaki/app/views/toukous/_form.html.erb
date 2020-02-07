@@ -3,8 +3,6 @@
   <% if toukou.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(toukou.errors.count, "error") %> prohibited this toukou from being saved:</h2>
-<!-- ここも日本語に変えたほうが良いか-->
-
       <ul>
       <% toukou.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -12,7 +10,6 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
     <%= form.label :本文 %>
     <%= form.text_area :content %>
