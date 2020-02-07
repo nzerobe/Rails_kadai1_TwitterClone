@@ -4,12 +4,21 @@
     <title>Tsubuyaki</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+  <header>
+      <nav class="navbar navbar-light bg-light">
+        <span class="navbar-text"  width="30" height="30" alt="">
+          ヘッダーです　ヘッダーです　ヘッダーです
+        </span>
+      </nav>
+  </header>
+  <%= image_tag "bluebird_baka.png" %>
     <%= yield %>
+  <footer class="footer">
+  <p>Copyright © 2018 DIVE INC ALL RIGHTS RESERVED.</p>
+  </footer>
   </body>
 </html>

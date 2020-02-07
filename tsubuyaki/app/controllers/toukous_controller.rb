@@ -1,37 +1,30 @@
 class ToukousController < ApplicationController
   before_action :set_toukou, only: [:show, :edit, :update, :destroy]
-
   # GET /toukous
   # GET /toukous.json
   def index
     @toukous = Toukou.all
   end
-
   # GET /toukous/1
   # GET /toukous/1.json
   def show
   end
-
   # GET /toukous/new
   def new
     @toukou = Toukou.new
   end
-
   # GET /toukous/1/edit
   def edit
   end
-
   # POST /toukous
   # POST /toukous.json
   def create
     @toukou = Toukou.new(toukou_params)
-
     if params[:back]
        render :new
     else
-
       respond_to do |format|
-      if @toukou.save  
+      if @toukou.save
           format.html { redirect_to @toukou, notice: '正常に投稿されました。' }
           format.json { render :show, status: :created, location: @toukou }
       else
@@ -41,7 +34,6 @@ class ToukousController < ApplicationController
      end
     end
   end
-
   # PATCH/PUT /toukous/1
   # PATCH/PUT /toukous/1.json
   def update
@@ -60,7 +52,6 @@ class ToukousController < ApplicationController
     @toukou = Toukou.new(toukou_params)
     render :new if @toukou.invalid?
   end
-
   # DELETE /toukous/1
   # DELETE /toukous/1.json
   def destroy
